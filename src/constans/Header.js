@@ -1,0 +1,1 @@
+export const CLICK_LINK_SUCCESS = 'CLICK_LINK_SUCCESS';
