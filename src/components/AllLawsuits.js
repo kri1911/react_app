@@ -67,12 +67,10 @@ export default class AllLawsuit extends Component{
                     <input type="date" ref='date'/>
                 </div>
                 {!this.props.ld ? <div className='main_search'><input type="text" ref='search'  onChange={this.MainSearch.bind(this)} placeholder='Поиск'/></div>: ''}
-                <div className='table-responsive'>
-                    <table className='table'>
-                        <thead>{thead}</thead>
-                        <tbody>{data}</tbody>
-                    </table>
-                </div>
+                <table className='table table-responsive'>
+                    <thead>{thead}</thead>
+                    <tbody>{data}</tbody>
+                </table>
             </div>
         );
     }

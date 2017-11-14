@@ -39,11 +39,10 @@ export default class AllDocuments extends Component{
             <td>Удалить</td>
         </tr>
         return (
-            <div className='table-responsive'>
-                <table className='table'><thead>{thead}</thead>
-                    <tbody>{data}</tbody>
-                </table>
-            </div>
+            <table className='table table-responsive'>
+                <thead>{thead}</thead>
+                <tbody>{data}</tbody>
+            </table>
         );
     }
 }
