@@ -33,15 +33,17 @@ export default class AllParticipants extends Component{
                 <td></td>
             </tr>
         );
-        for (let key in this.props.mass) {
-            data.push(<tr key={key}>
-                <td><Link to={`/participants/${this.props.mass[key].objectId}`}>{this.props.mass[key].name}</Link></td>
-                <td>{this.props.mass[key].type}</td>
-                <td>{this.props.mass[key].adress}</td>
-                <td>{this.props.mass[key].phone}</td>
-                <td className='delete_button' onClick={this.remove__part.bind(this, this.props.mass[key].objectId)}>X</td>
-            </tr>);
+        data.push(this.props.mass.map( (item, index) => {
+            console.log(item)
+            return (<tr key={index}>
+                <td><Link to={`/participants/${item.objectId}`}>{item.name}</Link></td>
+                <td>{item.type}</td>
+                <td>{item.adress}</td>
+                <td>{item.phone}</td>
+                <td className='delete_button' onClick={this.remove__part.bind(this, item.objectId)}>X</td>
+            </tr>)
         }
+    ))
         thead = <tr>
             <td>Участник</td>
             <td>Должность</td>

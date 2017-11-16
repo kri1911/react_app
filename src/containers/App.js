@@ -20,19 +20,25 @@ const mapStateToProps = (state) => ({
 export default class App extends Component {
 
     static propTypes = {
-        set_shedules: PropTypes.array.isRequired,
-        set_participants: PropTypes.array.isRequired,
-        set_documents: PropTypes.array.isRequired,
-        mass: PropTypes.array.isRequired,
-        link: PropTypes.string.isRequired
+        page: PropTypes.shape({
+            set_shedules: PropTypes.array.isRequired,
+            set_participants: PropTypes.array.isRequired,
+            set_documents: PropTypes.array.isRequired,
+            mass: PropTypes.array.isRequired,
+            link: PropTypes.string.isRequired
+        })
     }
     render(){
         const { page } = this.props;
-        const { load } = this.props.pageLawsuitActions;
         const { load_in_progress, delete_lawsuit, add_lawsuit, add_shedule, set_modify, set_doc, set_shedule } = this.props.pageLawsuitActions;
         return(
             <div className='app container'>
-                <PageLawsuit set_shedules={page.set_shedules} set_modify={set_modify} set_doc={set_doc} set_shedule={set_shedule} set_participants={page.set_participants} set_documents={page.set_documents} mass={page.mass} add_shedule={add_shedule} delete_lawsuit={delete_lawsuit} add_lawsuit={add_lawsuit} load_in_progress={load_in_progress} link={page.link} />
+                <PageLawsuit set_shedules={page.set_shedules} set_modify={set_modify} set_doc={set_doc}
+                             set_shedule={set_shedule} set_participants={page.set_participants}
+                             set_documents={page.set_documents} mass={page.mass} add_shedule={add_shedule}
+                             delete_lawsuit={delete_lawsuit} add_lawsuit={add_lawsuit} load_in_progress={load_in_progress}
+                             link={page.link}
+                />
             </div>
         )
     }

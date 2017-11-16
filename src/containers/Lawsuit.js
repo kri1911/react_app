@@ -13,19 +13,21 @@ const mapStateToProps = (state) => ({
 export default class Lawsuit extends Component{
 
     static propTypes = {
-        set_shedules: PropTypes.array.isRequired,
-        set_participants: PropTypes.array.isRequired,
-        set_documents: PropTypes.array.isRequired,
-        document: PropTypes.array.isRequired,
-        shedule: PropTypes.array.isRequired,
-        mass: PropTypes.array.isRequired,
-        link: PropTypes.string.isRequired,
-        search_document_for_lawsuit: PropTypes.string.isRequired,
-        search_shedule_for_lawsuit: PropTypes.string.isRequired,
-        search_participant_for_lawsuit_for_lawsuit: PropTypes.string.isRequired,
-        participants: PropTypes.array.isRequired,
-        lawsuit: PropTypes.array.isRequired,
-        modify: PropTypes.bool.isRequired
+        page: PropTypes.shape({
+            set_shedules: PropTypes.array.isRequired,
+            set_participants: PropTypes.array.isRequired,
+            set_documents: PropTypes.array.isRequired,
+            document: PropTypes.array.isRequired,
+            shedule: PropTypes.array.isRequired,
+            mass: PropTypes.array.isRequired,
+            link: PropTypes.string.isRequired,
+            search_document_for_lawsuit: PropTypes.string.isRequired,
+            search_shedule_for_lawsuit: PropTypes.string.isRequired,
+            search_participant_for_lawsuit_for_lawsuit: PropTypes.string.isRequired,
+            participants: PropTypes.array.isRequired,
+            lawsuit: PropTypes.array.isRequired,
+            modify: PropTypes.bool.isRequired
+        })
     }
 
     render(){
@@ -41,7 +43,8 @@ export default class Lawsuit extends Component{
                              set_participants={page.set_participants} id={this.props.match.params.id? this.props.match.params.id: ''}
                              set_modify={set_modify} set_doc={set_doc} update_lawsuit={update_lawsuit} modify={page.modify}
                              mass={page.mass} participants={page.participants} lawsuit={page.lawsuit} load={load}
-                             load_lawsuit={load_lawsuit} />
+                             load_lawsuit={load_lawsuit}
+                />
             </div>
         )
     }

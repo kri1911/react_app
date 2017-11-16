@@ -6,6 +6,9 @@ let APP_ID = "65C4EB6E-067E-1E36-FF02-606F133B7F00",
 Backendless.initApp(APP_ID, API_KEY);
 
 function getData(mass, TYPE, queryBuilder, dispatch){
+
+    queryBuilder.setSortBy(['created DESC']);
+
     Backendless.Data.of('participants').find(queryBuilder).then(function (result) {
         for (let key in result) {
             mass.push(result[key]);

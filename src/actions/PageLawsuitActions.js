@@ -14,11 +14,14 @@ import { LOAD_LAWSUIT_SUCCESS,
 import Backendless from 'backendless';
 
 function getData(mass, TYPE, queryBuilder, dispatch){
+
+    queryBuilder.setSortBy(['created DESC']);
+
     Backendless.Data.of('Lawsuit').find(queryBuilder).then(function (result) {
         for(let key in result){
             mass.push(result[key]);
         }
-        console.log(result);
+
         dispatch({
             type: TYPE,
             payload: {mass}
@@ -279,7 +282,7 @@ export function add_lawsuit(data) {
                 var queryBuilder = Backendless.DataQueryBuilder.create();
                 queryBuilder.setRelated([ "participants_id", "shedule_id", "documents_id" ]);
                 getData(mass, ADD_LAWSUIT, queryBuilder, dispatch);
-    })
+            })
     }
 }
 

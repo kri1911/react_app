@@ -3,7 +3,6 @@ import { connect } from 'react-redux';
 import * as pageParticipantAction from '../actions/PageParticipantAction';
 import { bindActionCreators } from 'redux';
 import PageParticipant from '../components/PageParticipant';
-import Backendless from 'backendless';
 
 const mapStateToProps = (state) => ({
     page: state.pageparticipant
